@@ -1,0 +1,99 @@
+@import './variables';
+// 20190430 begin
+
+// 颜色设置（$color：在variables里定义的变量）
+@mixin color($color: $--ui-color-primary) {
+	color: nth($color, 1);
+  // [data-theme="theme1"] & 
+  //   color: nth($color, 2);
+}
+
+// 背景颜色设置（$bg-color：在variables里定义的变量）
+@mixin bg-color($bg-color: $--ui-color-background, $important: null) {
+	@if $important {
+		background-color: nth($bg-color, 1) !important;
+	} @else {
+		background-color: nth($bg-color, 1);
+	}
+}
+// 背景颜色设置-透明度（$bg-color：在variables里定义的变量）
+@mixin bg-color-alpha($bg-color: $--ui-color-background, $alpha: 1) {
+	background-color: rgba($bg-color, $alpha);
+}
+// 边框色设置（$border-color：在variables里定义的变量; $target: 只针对特定方位的边框，可缺省，值为top/left/right/bottom）
+@mixin border-color($border-color: $--ui-color-border, $target: null) {
+	@if $target {
+		border-#{$target}-color: nth($border-color, 1);
+	} @else {
+		border-color: nth($border-color, 1);
+	}
+}
+// end
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin pct($pct) {
+  width: #{$pct};
+  position: relative;
+  margin: 0 auto;
+}
+
+@mixin triangle($width, $height, $color, $direction) {
+  $width: $width/2;
+  $color-border-style: $height solid $color;
+  $transparent-border-style: $width solid transparent;
+  height: 0;
+  width: 0;
+
+  @if $direction==up {
+    border-bottom: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  }
+
+  @else if $direction==right {
+    border-left: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  }
+
+  @else if $direction==down {
+    border-top: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  }
+
+  @else if $direction==left {
+    border-right: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  }
+}
