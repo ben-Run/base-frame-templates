@@ -10,7 +10,7 @@ Base Frame templates
 ## 范围
 目前只是记录pc端跟移动端
 
-##未来计划
+## 未来计划
 - Pwa
 - Flutter
 - Electron
