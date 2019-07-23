@@ -11,6 +11,6 @@ Base Frame templates
 目前只是记录pc端跟移动端
 
 ##未来计划
-Pwa
-Flutter
-Electron
+- Pwa
+- Flutter
+- Electron
