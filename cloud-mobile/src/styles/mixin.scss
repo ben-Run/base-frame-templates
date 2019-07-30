@@ -1,5 +1,4 @@
 @import './variables';
-// 20190430 begin
 
 // 颜色设置（$color：在variables里定义的变量）
 @mixin color($color: $--ui-color-primary) {
@@ -29,8 +28,6 @@
 	}
 }
 // end
-
-
 @mixin clearfix {
   &:after {
     content: "";
@@ -96,4 +93,10 @@
     border-top: $transparent-border-style;
     border-bottom: $transparent-border-style;
   }
+}
+/* transforming px to rem
+ * width: toRem(100px)
+ */
+ @function toRem($px) {
+  @return $px / 100px * 1rem;
 }

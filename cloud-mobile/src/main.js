@@ -4,12 +4,15 @@ import Mint from 'mint-ui';
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import setRem from '@/utils/rem'
 import './styles/index.scss' // css主入口
 import 'mint-ui/lib/style.css'
 import 'viewerjs/dist/viewer.css'
 import './registerServiceWorker'
 import './permission'
 
+// rem
+setRem(document, window)
 Vue.config.productionTip = false
 
 Vue.use(Mint)
