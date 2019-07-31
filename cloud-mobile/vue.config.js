@@ -5,6 +5,11 @@ const chalk = require('chalk');
 const webpack = require('webpack')
 const path = require('path')
 
+// path join
+function resolve (dir) {
+  return path.join(__dirname, './', dir)
+}
+
 module.exports = {
   // 本地运行设置（webpack-dev-server）
   devServer: {
@@ -117,6 +122,26 @@ module.exports = {
        width: 70,
        renderThrottle: 10
     }));
+
+    // svg rule loader
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule.exclude.add(/node_modules/)
+    svgRule // 添加svg新的loader处理 svg-sprite
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]',
+        include: ["./src/assets/icons"]
+      })
+    // 修改images loader 添加svg处理
+    const imagesRule = config.module.rule('images')
+    imagesRule.exclude.add(resolve('src/assets/icons'))
+    config.module
+      .rule('images')
+      .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+
     return config
   },
   css: {

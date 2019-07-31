@@ -1,6 +1,9 @@
 <template>
- <article>
-
+ <article class="home-box">
+   <p>hello，this is homeIndx page</p>
+   <section class="svg-demo">
+     <svg-icon class="smile"  name="smile" size="77"></svg-icon>
+   </section>
  </article>
 </template>
 
@@ -17,10 +20,21 @@ export default {
   },
   methods: {},
   watch: {},
-  filters: {},
+  filters: {}
 }
 </script>
 
 <style lang='scss' scoped>
+.home-box {
+  display: block;
+  p {
+   font-size: toRem(37px);
+   padding: 37px;
+ }
+ .svg-demo {
+   width: 100%;
+   height: 1rem;
+ }
+}
 
 </style>

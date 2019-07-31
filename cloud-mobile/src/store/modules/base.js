@@ -22,8 +22,7 @@ const actions = {
       commit('BASE_DATA_LIST', response)
     }
     return response
-  },
-  
+  }
 }
 const mutations = {
   BASE_DATA_LIST (state, data = {}) {

@@ -1,8 +1,8 @@
 /* set font-size
- * @Author: bensong.long 
- * @Date: 2019-07-30 09:48:54 
+ * @Author: bensong.long
+ * @Date: 2019-07-30 09:48:54
  * @Last Modified by: bensong.long
- * @Last Modified time: 2019-07-30 10:25:07
+ * @Last Modified time: 2019-08-01 00:27:32
  */
 function setRem (doc, win) {
   const docEl = doc.documentElement

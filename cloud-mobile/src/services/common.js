@@ -18,7 +18,9 @@ export function post (url, params) {
         } else if (data.Message.includes('未登录')) {
           location.href = `${process.env.FRAME_URL}`
         } else {
-          Message.error(data.Message)
+          this.$toast({
+            message: '系统繁忙，请稍后再试！'
+          })
           reject(data.Message)
         }
       }
@@ -46,7 +48,9 @@ export function fileUpload (url, params) {
       })
       resolve(data)
     } catch (e) {
-      Message.error(e.message || '系统繁忙，请稍后再试！')
+      this.$toast({
+        message: `${e.message}` || '系统繁忙，请稍后再试！'
+      })
       reject(e)
     }
   })
@@ -63,12 +67,16 @@ export function get (url, download = false) {
       if (data.Code === 0 || download) {
         resolve(data)
       } else {
-        Message.error(data.Message)
         reject(data.Message)
+        this.$toast({
+          message: '系统繁忙，请稍后再试！'
+        })
       }
     } catch (e) {
       reject(e)
-      Message.error(e.message || '系统繁忙，请稍后再试！')
+      this.$toast({
+        message: `${e.message}` || '系统繁忙，请稍后再试！'
+      })
     }
   })
 }
@@ -83,12 +91,14 @@ export function del (url) {
       if (data.Code === 0) {
         resolve(data)
       } else {
-        Message.error(data.Message)
+        // Message.error(data.Message)
         reject(data.Message)
       }
     } catch (e) {
       reject(e)
-      Message.error(e.message || '系统繁忙，请稍后再试！')
+      this.$toast({
+        message: `${e.message}` || '系统繁忙，请稍后再试！'
+      })
     }
   })
 }

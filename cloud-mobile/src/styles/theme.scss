@@ -1,9 +1,55 @@
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  -webkit-font-smoothing: antialiased;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+ul, li{
+  list-style: none;
+  list-style-type:none;
+}
 html{
   -ms-overflow-style:none;
+  height: 100%
 }
 body {
   margin: 0;
+  height: 100%;
   font-family: "Arial","Microsoft YaHei","黑体",sans-serif;
+  font-size: 14px;
   @include color($--ui-font-content);
 }
 input,select,textarea{
@@ -17,7 +63,7 @@ a{
   text-decoration: none;
   @include color();
 }
-ul, li{
-  list-style: none;
-  list-style-type:none;
+// toast层级
+.mint-toast {
+  z-index: 99999!important;
 }

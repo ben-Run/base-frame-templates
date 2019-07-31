@@ -42,6 +42,7 @@
     "progress-bar-webpack-plugin": "^1.12.1",
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
+    "svg-sprite-loader": "^4.1.6",
     "vue-template-compiler": "^2.6.10"
   }
 }
