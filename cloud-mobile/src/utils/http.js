@@ -1,12 +1,16 @@
 import axios from 'axios'
-import { getToken } from '@/utils/auth'
-import store from '@/store'
+import { getToken, removeToken } from '@/utils/auth'
+import { Toast } from 'mint-ui'
 
 // 使用interceptors拦截每次的request和response，然后自定义添加header信息
 axios.defaults.withCredentials = true
 axios.interceptors.request.use(config => { // config表示每次请求的内容
   config.headers['X-Requested-With'] = 'XMLHttpRequest'
   config.headers['content-type'] = 'application/json;charset=utf-8'
+  const token = getToken()
+  if (token) {
+    config.headers['AccessToken'] = token
+  }
   return config
 }, error => { // 错误处理
   return Promise.reject(error)
@@ -15,7 +19,30 @@ axios.interceptors.request.use(config => { // config表示每次请求的内容
 // http response 拦截器
 axios.interceptors.response.use(
   response => {
-    return response
+    const { status, data } = response
+    // 根据业务调整
+    if (status === 200) {
+      const { code, msg } = data
+      if (code === '0') {
+        return data.data
+      } else {
+        if (msg && msg.indexOf('is invalid or expired') > -1) {
+          if (process.env.NODE_ENV === 'development') {
+            removeToken()
+            window.location.reload()
+          }
+        }
+        if (msg) {
+          Toast({
+            message: msg,
+            position: 'middle',
+            duration: 3000
+          })
+        }
+      }
+      /* eslint-disable-next-line */
+      return Promise.reject({ message: msg })
+    }
   },
   error => { // 错误处理
     if (error && error.response) {
@@ -29,8 +56,7 @@ axios.interceptors.response.use(
           case 401:
             error.message = '未授权，请登录'
             if (!getToken()) {
-              TODO: 登录
-              // store.dispatch('') // 登录页面
+              // TODO: 登录
             }
             break
           case 403:
@@ -61,9 +87,15 @@ axios.interceptors.response.use(
             error.message = 'HTTP版本不受支持'
             break
           default:
+            error.message = '系统错误，请联系管理员'
         }
       }
     }
+    Toast({
+      message: error.message,
+      position: 'middle',
+      duration: 3000
+    })
     return Promise.reject(error)
   }
 )

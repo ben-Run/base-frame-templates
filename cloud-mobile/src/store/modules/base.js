@@ -18,9 +18,7 @@ const actions = {
   // 基础服务
   async getBaseDataList ({ commit }, params) {
     const response = await getBaseDataList(params)
-    if (response.Code === 0) {
-      commit('BASE_DATA_LIST', response)
-    }
+    commit('BASE_DATA_LIST', response)
     return response
   }
 }
@@ -36,5 +34,6 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  namespaced: true
 }

@@ -1,7 +1,5 @@
 // vue.config.js
 
-let ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const chalk = require('chalk');
 const webpack = require('webpack')
 const path = require('path')
 
@@ -115,14 +113,7 @@ module.exports = {
         options.limit = 10000 // 图片少于10k转base64(默认是4k)
         return options
       })
-    config.plugin('newprogress')
-     .use(new ProgressBarPlugin({
-       format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
-       clear: true, 
-       width: 70,
-       renderThrottle: 10
-    }));
-
+      
     // svg rule loader
     const svgRule = config.module.rule('svg')
     svgRule.uses.clear()
