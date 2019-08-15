@@ -1,6 +1,6 @@
 <template>
  <article class="login-box">
-   <P>login box</P>
+   <P>login page</P>
  </article>
 </template>
 
