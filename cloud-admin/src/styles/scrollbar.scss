@@ -1,0 +1,25 @@
+// 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+// 定义滚动条轨道
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+  @include bg-color($--ui-color-scrollbar-bg);
+}
+
+// 定义滑块和滚动条的交汇处、滑块
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-corner {
+  border-radius: 12px;
+  @include bg-color($--ui-color-scrollbar-thumb);
+}
+// 定义滑块和滚动条的交汇处、滑块
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-corner {
+  border-radius: 12px;
+  // @include bg-color($--ui-color-scrollbar-thumb);
+  @include bg-color-alpha($--ui-color-scrollbar-thumb, 0.3);
+}

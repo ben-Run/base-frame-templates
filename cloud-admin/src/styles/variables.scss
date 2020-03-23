@@ -1,0 +1,43 @@
+//	全局scss变量，主要定义UI风格设计规范里的颜色
+$--ui-color-primary: #00e8fe;					// 用于重要级文字信息，需要特别强调和突出的文字、图标、按钮
+$--ui-color-yellow: #ffd800; 					// 部分面积使用，装饰图标、图表曲线等
+$--ui-color-green: #00ffae; 					// 部分面积使用，图表曲线等
+$--ui-color-red: #ff2787; 						// 部分面积使用，图表曲线等
+$--ui-color-blue: #009cff; 						// 部分面积使用，图表曲线等
+$--ui-color-transparent: transparent; // 默认模板为透明，占位给其他模板
+$--ui-color-success: #00FFAE;         // 默认成功提示色
+$--ui-color-blue-2: #3890EF;          // 部分面积使用
+
+$--ui-color-background: #0e1a31; 			// 页面模块的背景色
+$--ui-color-main-bg: #000d20;					// 主题页面背景色
+$--ui-color-border: #314361; 					// 分割线、输入框、边框用色
+$--ui-color-table-stripe: #00102a; 		// 列表斑马纹用色
+$--ui-color-pageborder: #008fa0; 			// 页面模块边框色
+$--ui-color-table-highlight: #16305d; // 列表选中高亮
+$--ui-color-table-sum-bg: rgba(0, 232, 254, 0.05); // 表格汇总背景色
+$--ui-color-menu-open-bg: #000c1f;		// 导航展开底色
+$--ui-color-dialog-border-top: #173361;		// 弹框分割线上部分用色
+$--ui-color-dialog-border-bottom: #000c1f;		// 弹框分割线下部分用色
+$--ui-color-scrollbar-bg: #22314b;		// 滚动条底色
+$--ui-color-scrollbar-thumb: #7186aa;		// 滚动条滑块用色
+$--ui-color-popover-bg: rgba(41, 59, 91, .95); // popover弹框1
+$--ui-color-tag-success-bg: rgba(0, 255, 174, .2); // el-tag--success底色
+$--ui-color-rate-off: rgba(255, 216, 0, .3); // el-rate 未选中色彩
+$--ui-color-tabs: #eee; // el-tabs背景色
+$--ui-color-tips: #909399;
+
+$--ui-color-desc: #656262;
+$--ui-font-title: #ffffff; 						// 标题用色
+$--ui-font-content: #ffffff; 					// 正文用色
+$--ui-font-tips: #92aad2; 						// 辅助次要文字
+$--ui-font-warning: red; 						// 错误提示或者警告文字
+$--ui-font-default-hover: #b0cbf7;		// 默认按钮悬浮文字用色
+
+$--ui-btn-primary: #012e54;						// primary按钮背景色
+$--ui-btn-primary-hover: #012e54;			// primary按钮悬浮背景色
+$--ui-btn-hover: #4b638a;							// 表单项悬浮用色
+$--ui-btn-default-hover: #43597f;			// 默认按钮悬浮边框用色
+$--ui-btn-disabled: #19263f;					// 表单元素disabled用色
+$--ui-form-no-bg: transparent;					// 表单元素浏览状态无背景色
+
+$--ui-step-icon-default: #464C5D;     // 步骤条默认图标用色
